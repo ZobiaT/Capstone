@@ -14,14 +14,14 @@
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
+    { "src": "/", "dest": "/app.py" },
+    { "src": "/video_feed", "dest": "/app.py" },
+    { "src": "/capture", "dest": "/app.py" },
+    { "src": "/predict", "dest": "/app.py" },
+    { "src": "/generate_recipes", "dest": "/app.py" },
+    { "src": "/detect", "dest": "/app.py" },
+    { "src": "/<filename>", "dest": "/app.py" },
+    { "src": "/static/(.*)", "dest": "/static/$1" }
   ],
   "env": {
     "MODEL1_PATH": "./runs/detect/Model-Mix 1/train2/weights/best.pt",
