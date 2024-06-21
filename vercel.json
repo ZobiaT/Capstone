@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.10"
+      }
+    },
+    {
+      "src": "static/**",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "env": {
+    "MODEL1_PATH": "./runs/detect/Model-Mix 1/train2/weights/best.pt",
+    "MODEL2_PATH": "./runs/detect/Model-Vegetables/train4/weights/best.pt",
+    "RECIPE_GEN_MODEL_PATH": "recipe_gen_model"
+  }
+}
